@@ -1,0 +1,56 @@
+<mvc:View controllerName="sl.ewmwaste.controller.Waste"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true"
+    xmlns="sap.m">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>appTitle}"
+                    class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer">
+                    <headerContent>
+                        <Toolbar width="100%" id="toolbarFooter" style="Standard">
+                            <ToolbarSpacer id="idToolbar1" />
+                            <Title id="idTitleCap" text="" />
+                        </Toolbar>
+                    </headerContent>
+                    <content>
+                        <VBox id="_IDGenVBox1" justifyContent="Center" alignItems="Center"
+                            alignContent="Center">
+                            <Button id="postButton" text="{i18n>post}" type="Emphasized"
+                                width="12.5rem" press="onPressPost" />
+
+                            <HBox id="_IDGenHBox1">
+                                <RadioButtonGroup id="rbg2" columns="2" selectedIndex="2"
+                                    class="sapUiMediumMarginBottom">
+                                    <RadioButton id="Rad1" activeHandling="true" editable="true"
+                                        enabled="true" groupName="sapMRbDefaultGroup"
+                                        selected="true" text="{i18n>porPallet}" textAlign="Begin"
+                                        textDirection="Inherit" useEntireWidth="true"
+                                        valueState="None" width="auto" select="onSelect1">
+                                    </RadioButton>
+                                    <RadioButton id="Rad2" activeHandling="true" editable="true"
+                                        enabled="true" groupName="sapMRbDefaultGroup"
+                                        selected="false" text="{i18n>porArticulo}" textAlign="Begin"
+                                        textDirection="Inherit" useEntireWidth="true"
+                                        valueState="None" width="auto" select="onSelect2">
+                                    </RadioButton>
+                                </RadioButtonGroup>
+                            </HBox>
+
+                            <Input value="" placeholder="{i18n>newArticle}" id="inputAddTask"
+                                submit="onScan" width="12.5rem" />
+
+                            <VBox id="_IDGenVBox2b" justifyContent="Center" alignItems="Center"
+                                alignContent="Center">
+                                <List noDataText="{i18n>noScan}" id="listTodo" inset="true"
+                                    width="auto" mode="Delete" delete="onDeleteItem"
+                                    showSeparators="None" />
+                            </VBox>
+
+                        </VBox>
+
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View> 

@@ -1,0 +1,150 @@
+{
+  "_version": "1.17.0",
+  "sap.app": {
+    "id": "sl.ewmwaste",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.13.1",
+      "toolsId": "ae5357fa-fac6-42ec-9cae-363f7cfffd46"
+    },
+    "dataSources": {
+      "SUDE": {
+        "uri": "/sap/opu/odata/sap/ZEWM_WASTE_SUDE_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "VFCA": {
+        "uri": "/sap/opu/odata/sap/ZEWM_WASTE_VFCA_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "AlmacenService": {
+        "uri": "/sap/opu/odata/sap/ZEWM_SELECALM_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.84.34",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sl.ewmwaste.i18n.i18n"
+        }
+      },
+      "SUDE": {
+        "dataSource": "SUDE",
+        "preload": true,
+        "settings": {}
+      },
+      "VFCA": {
+        "dataSource": "VFCA",
+        "preload": true,
+        "settings": {}
+      },
+      "permisosAlmacenes": {
+        "dataSource": "AlmacenService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "sl.ewmwaste.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteWaste",
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Waste",
+          "view": "Waste"
+        }
+      ],
+      "targets": {
+        "TargetWaste": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Waste",
+          "viewName": "Waste"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sl.ewmwaste.view.Waste",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}
